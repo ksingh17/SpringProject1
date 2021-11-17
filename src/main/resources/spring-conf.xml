@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+
+
+
+
+	<context:component-scan
+		base-package="com.rapipay.ticket" />
+
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+
+	<bean id="admin1" class="com.rapipay.ticket.bean.Admin">
+		<property name="userName" value="Shivani"></property>
+		<property name="password" value="Aa12345#"></property>
+	</bean>
+	<bean id="admin2" class="com.rapipay.ticket.bean.Admin">
+		<property name="userName" value="Kashish"></property>
+		<property name="password" value="Da12345#"></property>
+	</bean>
+	<bean id="admin3" class="com.rapipay.ticket.bean.Admin">
+		<property name="userName" value="Priyanshi"></property>
+		<property name="password" value="Ja12345#"></property>
+	</bean>
+
+	<bean id="td1" class="com.rapipay.ticket.bean.TrainDetails">
+		<property name="trainNumber" value="05036"></property>
+		<property name="trainName" value="SAMPARK"></property>
+		<property name="source" value="Delhi"></property>
+		<property name="destination" value="Haldwani"></property>
+	</bean>
+	<bean id="td2" class="com.rapipay.ticket.bean.TrainDetails">
+		<property name="trainNumber" value="98372"></property>
+		<property name="trainName" value="abc"></property>
+		<property name="source" value="Delhi"></property>
+		<property name="destination" value="japan"></property>
+	</bean>
+	<bean id="td3" class="com.rapipay.ticket.bean.TrainDetails">
+		<property name="trainNumber" value="267352"></property>
+		<property name="trainName" value="xyz"></property>
+		<property name="source" value="jsj"></property>
+		<property name="destination" value="sshs"></property>
+	</bean>
+
+	<bean id="ticket1" class="com.rapipay.ticket.bean.TicketDetails">
+		<property name="ticketId" value="272727"></property>
+		<property name="ticketClass" value="SL"></property>
+		<property name="source" value="dhdh"></property>
+		<property name="destination" value="sshs"></property>
+		<property name="numOfPassenger" value="3"></property>
+		<property name="totalAmount" value="10000"></property>
+
+		<property name="train">
+
+			<ref bean="td1" />
+
+		</property>
+	</bean>
+
+
+	<bean id="ticket2" class="com.rapipay.ticket.bean.TicketDetails">
+		<property name="ticketId" value="272727"></property>
+		<property name="ticketClass" value="AC"></property>
+		<property name="source" value="dhdjs"></property>
+		<property name="destination" value="ddh"></property>
+		<property name="numOfPassenger" value="3"></property>
+		<property name="totalAmount" value="7827000"></property>
+		<property name="train">
+
+			<ref bean="td3" />
+
+		</property>
+	</bean>
+
+</beans>
